@@ -1,0 +1,29 @@
+<section class="formContainer container-fluid">
+    <div class="row text-center p-5">
+        <h1 class="text-light">Formulario de Login</h1>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-6 col-lg-4">
+            <form [formGroup]="loginForm">
+                <div class="mb-3 p-2">
+                    <label for="email" class="form-label text-light">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+                    <p *ngIf="hasError('email')" class="text-light"> {{ getErrorMessage('email') }}</p>
+                </div>
+                <div class="mb-3 p-2">
+                    <label for="password" class="form-label text-light">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <p *ngIf="hasError('password')" class="text-light"> {{ getErrorMessage('password') }}</p>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-light mx-2" (click)="submit()">Validar</button>
+                    <button type="button" class="btn btn-light mx-2" (click)="register()">Registrarse</button>
+                </div>
+                <div *ngIf="infoMessage" class="text-light">
+                    {{ infoMessage }}
+                  </div>
+            </form>
+        </div>
+    </div>
+</section>
